@@ -40,7 +40,6 @@ jspm_packages
 build/
 dist/
 ignore/
-lib/
 
 .idea
 *.swp
