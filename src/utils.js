@@ -112,6 +112,7 @@ const resolveCwd = (filename = '') => {
 
 /**
  * Returns the package configuration
+ * If namespaceName is set, it will overwrite name
  *
  * @return {Object}
  */
@@ -120,6 +121,10 @@ const getPackageConfig = () => {
 
     try {
         packageConfig = require(resolve('package.json')); // eslint-disable-line global-require
+
+        if (packageConfig.namespaceName) {
+            packageConfig.name = packageConfig.namespaceName;
+        }
     } catch (e) {
         /* istanbul ignore next */
         packageConfig = {};
